@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Asignar Película a Sala</h2>
+<mat-dialog-content>
+  <form [formGroup]="asignarForm">
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Salas Disponibles</mat-label>
+      <mat-select formControlName="salaSeleccionada">
+        <mat-option *ngFor="let sala of salas" [value]="sala.id">
+          {{ sala.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Fecha de Publicación</mat-label>
+      <input matInput [matDatepicker]="publicacionPicker" formControlName="fechaPublicacion">
+      <mat-datepicker-toggle matSuffix [for]="publicacionPicker"></mat-datepicker-toggle>
+      <mat-datepicker #publicacionPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Fecha Fin</mat-label>
+      <input matInput [matDatepicker]="finPicker" formControlName="fechaFin">
+      <mat-datepicker-toggle matSuffix [for]="finPicker"></mat-datepicker-toggle>
+      <mat-datepicker #finPicker></mat-datepicker>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" (click)="asignar(salas)">Asignar</button>
+  <button mat-button (click)="cancelar()">Cerrar</button>
+</mat-dialog-actions>

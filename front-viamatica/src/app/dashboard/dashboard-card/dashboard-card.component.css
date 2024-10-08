@@ -1,0 +1,18 @@
+  .card-container {
+    max-width:max-content;
+    width: 600px;
+    flex: 1;
+  }
+
+  .card-icon {
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-icon {
+    font-size: 25px;
+  }

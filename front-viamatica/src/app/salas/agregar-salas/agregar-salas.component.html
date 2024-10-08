@@ -1,0 +1,14 @@
+<form [formGroup]="agregarSalaForm" (ngSubmit)="guardar()">
+    <h2 mat-dialog-title>Agregar Sala</h2>
+    <mat-dialog-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre">
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button type="submit" [disabled]="agregarSalaForm.invalid">Guardar</button>
+      <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+    </mat-dialog-actions>
+  </form>
+  

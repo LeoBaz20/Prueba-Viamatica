@@ -1,0 +1,38 @@
+<div class="peliculas-container">
+    <button mat-raised-button color="primary" (click)="agregarPelicula()">Agregar Película</button>
+  
+    <table mat-table [dataSource]="peliculas" class="mat-elevation-z8">
+       <!-- Columna ID -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let pelicula"> {{ pelicula.id_pelicula }} </td>
+          </ng-container>
+
+      <!-- Columna Título -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let pelicula"> {{ pelicula.nombre }} </td>
+      </ng-container>
+  
+      <!-- Columna Género -->
+      <ng-container matColumnDef="duracion">
+        <th mat-header-cell *matHeaderCellDef> Duración </th>
+        <td mat-cell *matCellDef="let pelicula"> {{ pelicula.duracion }} minutos  </td>
+      </ng-container>
+  
+      <!-- Columna Acciones -->
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let pelicula">
+          <button mat-icon-button color="accent" (click)="modificarPelicula(pelicula)">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  
